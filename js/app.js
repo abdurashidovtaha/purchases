@@ -3,7 +3,7 @@ const rootEl = document.getElementById('root');
 rootEl.innerHTML = `
 <form data-id="add-data">
     <label for="price-input">Введите сумму</label>
-    <input id="price-input" data-id="price" placeholder="Сумма" type="number">
+    <input id="price-input" data-id="price" placeholder="Сумма">
     <label for="category-input">Введите категорию</label>
     <input id="category-input" data-id="category" placeholder="Категория"1gi>
     <button data-action="add">Добавить</button>
@@ -43,7 +43,7 @@ buttonEl.onclick = evt => {
 
     const purchaseEl = document.createElement('li')
     purchaseEl.innerHTML = `
-    Покупка на сумму ${value} в категории ${category}';
+    Покупка на сумму ${value} в категории ${category}
     `
 
     purchasesListEl.insertBefore(purchaseEl, purchasesListEl.firstChild);
