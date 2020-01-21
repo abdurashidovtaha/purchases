@@ -8,6 +8,7 @@ rootEl.innerHTML = `
     <input id="category-input" data-id="category" placeholder="Категория"1gi>
     <button data-action="add">Добавить</button>
 </form>
+<ul data-id="purchases-list"></ul>
 <div data-id="show-sum">
     <br> 
     <b><label for="total-sum">Общяя сумма:</label></b>
@@ -20,6 +21,8 @@ let totalSum = 0;
 const formEl = rootEl.querySelector('[data-id=add-data');
 
 const showSumEl = rootEl.querySelector('[data-id=show-sum]')
+
+const purchasesListEl = rootEl.querySelector('[data-id=purchases-list]')
 
 const sumEl = showSumEl.querySelector('[data-id=sum]');
 
@@ -36,8 +39,18 @@ buttonEl.onclick = evt => {
     totalSum += parseInt(value, 10);
     sumEl.textContent = `${totalSum}`;
 
-    priceEl.value = 'Сумма';
-    addInputCategoryEl.value = 'Категория';
+    const category = addInputCategoryEl.value
+
+    const purchaseEl = document.createElement('li')
+    purchaseEl.innerHTML = `
+    Покупка на сумму ${value} в категории ${category}';
+    `
+
+    purchasesListEl.insertBefore(purchaseEl, purchasesListEl.firstChild);
+
+    priceEl.value = '';
+    addInputCategoryEl.value = '';
 }
+
 
 
